@@ -17,12 +17,13 @@ const createWindow = () => {
 app.whenReady().then(() => {
   createWindow()
 
+  // WINDOWS WORK-AROUND TO "whenReady" EVENT
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
   })
 })
 
-// FOR WINDOWS
+// WINDOWS WORK-AROUND TO QUIT APP
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit()
 })
